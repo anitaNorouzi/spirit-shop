@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import "@mantine/core/styles.css";
 import Header from "@/modules/technologies/components/header";
+import Providers from "./providers";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,10 +27,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <div className="container mx-auto px-4 py-8">
-          <Header />
-          <main className="min-h-screen p-8"> {children}</main>
-        </div>
+        <Providers>
+          <div className="container mx-auto px-4 py-8">
+            <Header />
+            <main className="min-h-screen p-8"> {children}</main>
+          </div>
+        </Providers>
       </body>
     </html>
   );
