@@ -1,6 +1,6 @@
 import React from "react";
 import { GithubRepo } from "../types.ts/github";
-import { MAGICAL_TYPES } from "../types.ts/constants";
+import { MAGICAL_TYPES } from "../../../shared/utils/constants";
 const GITHUB_API_URL = "https://api.github.com";
 
 const POTION_EFFECTS = [

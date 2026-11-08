@@ -3,7 +3,7 @@ export type GithubRepo = {
   name: string;
   full_name: string;
   description: string;
-  stargazer_count: number;
+  stargazers_count: number;
   forks_count: number;
   topics: string[];
   owner: {

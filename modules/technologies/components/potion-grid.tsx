@@ -1,6 +1,8 @@
 import React from "react";
-import { Card, Text, Image } from "@mantine/core";
-
+import PotionCard from "./potion-card";
+import { Card, Text, Image, Box, Badge } from "@mantine/core";
+import getMagicalTypeIcon from "@/shared/utils";
+import { LuStar, LuPackage } from "react-icons/lu";
 import type {
   MagicalType,
   PotionType,
@@ -23,60 +25,9 @@ const PotionGrid = async ({ potions }: PotionGridProps) => {
       className="grid gap-6 sm:grid-cols-2
     lg:grid-cols-3 "
     >
-      {potions.map(
-        (
-          {
-            full_name,
-            name,
-            description,
-            topics,
-            magicalType,
-            owner: { login, avatar_url },
-          }: PotionType,
-          index: number,
-        ) => (
-          <Card
-            key={`${full_name}-${index}`}
-            shadow="sm"
-            padding="md"
-            component="a"
-            href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-            target="_blank"
-            className={`${potionClasses[magicalType]} relative group h-full 
-            cursor-pointer transition-all duration-300`}
-          >
-            <div className="flex items-center gap-3 py-3">
-              <Image
-                src={avatar_url}
-                alt={`${login}'s avatar`}
-                className="h-10 w-10 -translate-y-px rounded-full border border-purple-500/20"
-              />
-              <div>
-                <Text fw={500} size="lg" c="white">
-                  {name}
-                </Text>
-                <Text c="dimmed" size="xs">
-                  {login}
-                </Text>
-              </div>
-            </div>
-
-            <Text mt="xs" c="dimmed" size="sm">
-              {description}
-            </Text>
-            <Text
-              mt="xs"
-              c="dimmed"
-              size="sm"
-              className="flex items-center gap-2"
-            >
-              {topics.map((topic, index) => (
-                <span key={index}>{topic}</span>
-              ))}
-            </Text>
-          </Card>
-        ),
-      )}
+      {potions.map((potion, index) => (
+        <PotionCard {...potion} key={`${potion.name}-${index}`} />
+      ))}
     </div>
   );
 };
