@@ -22,7 +22,7 @@
   --color-magic-blue: #33c3f0;
   --color-magic-pink: #d946ef;
   --color-element-fire: #ff6b6b;
-  --color-element-ice: #fcceff;
+  --color-element-ice: #5cceff;
   --color-element-electric: #ffd43b;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
@@ -39,4 +39,72 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+@utility potion-card {
+  @apply rounded-xl overflow-hidden border border-purple-700/30 shadow-lg transition-all;
+
+  background-color: var(--color-card);
+
+  background-image: radial-gradient(
+    circle at 100% 0%,
+    rgba(155, 135, 245, 0.15) 0%,
+    transparent 25%
+  );
+
+  &:hover {
+    @apply border-purple-500/40;
+    box-shadow: 0 10px 15px -3px rgba(168, 85, 247, 0.2);
+  }
+}
+
+@utility potion-fire {
+  @apply rounded-xl overflow-hidden border border-purple-700/30 shadow-lg transition-all;
+
+  background-color: var(--color-card);
+
+  background-image: radial-gradient(
+    circle at 100% 0%,
+    rgba(255, 107, 107, 0.15) 0%,
+    transparent 25%
+  );
+
+  &:hover {
+    @apply border-element-fire/50;
+    box-shadow: 0 10px 15px -3px rgba(255, 107, 107, 0.25);
+  }
+}
+
+@utility potion-ice {
+  @apply rounded-xl overflow-hidden border border-purple-700/30 shadow-lg transition-all;
+
+  background-color: var(--color-card);
+
+  background-image: radial-gradient(
+    circle at 100% 0%,
+    rgba(92, 206, 255, 0.18) 0%,
+    transparent 25%
+  );
+
+  &:hover {
+    @apply border-element-ice/60;
+    box-shadow: 0 10px 15px -3px rgba(92, 206, 255, 0.25);
+  }
+}
+
+@utility potion-electric {
+  @apply rounded-xl overflow-hidden border border-purple-700/30 shadow-lg transition-all;
+
+  background-color: var(--color-card);
+
+  background-image: radial-gradient(
+    circle at 100% 0%,
+    rgba(255, 212, 59, 0.18) 0%,
+    transparent 25%
+  );
+
+  &:hover {
+    @apply border-element-electric/60;
+    box-shadow: 0 10px 15px -3px rgba(255, 212, 59, 0.25);
+  }
 }
