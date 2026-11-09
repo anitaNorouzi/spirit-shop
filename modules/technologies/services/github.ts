@@ -94,8 +94,8 @@ export async function fetchRandomTrendingPotion() {
   };
   try {
     const response = await fetch(url, {
-      headers, //SSR
-      cache: "no-store",
+      headers,
+      cache: "force-cache",
     });
     if (!response.ok) {
       throw new Error(`Failed to fetch potions`);
@@ -110,7 +110,7 @@ export async function fetchRandomTrendingPotion() {
     const randomIndex = Math.floor(Math.random() * data.items.length);
     return transformReformRepoToPotion(data.items[randomIndex], randomIndex);
   } catch (error) {
-    console.log("Failed to fetch potions", (error as Error).message);
+    console.error("Failed to fetch random potion", error);
     return null;
   }
 }
