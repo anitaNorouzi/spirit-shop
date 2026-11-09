@@ -20,3 +20,7 @@ export interface PotionType extends GithubRepo {
   potionEffect: string;
   magicalType: MagicalType;
 }
+
+export type PotionInfoType = {
+  potion: PotionType;
+};

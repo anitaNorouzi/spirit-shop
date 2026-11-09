@@ -8,6 +8,7 @@ import type {
   PotionType,
 } from "@/modules/technologies/types.ts/github";
 import { formatNumber } from "@/shared/utils/constants";
+import { PotionStats } from "./potion-common";
 
 interface PotionGridProps {
   potions: PotionType[];
@@ -73,17 +74,11 @@ const PotionCard = ({
           ✨Effect: {potionEffect}
         </Text>
         {/* stars and forks */}
-        <Box c="dimmed" className="flex justify-between mb-4">
-          <Box className="flex gap-0.5 items-center">
-            <LuStar className="text-yellow-400 w-3.5 h-3.5" />
-            <Text className="text-xs">{formatNumber(stargazers_count)}</Text>
-          </Box>
-
-          <Box className="flex gap-0.5 items-center">
-            <LuPackage className="text-blue-400 w-3.5 h-3.5" />
-            <Text className="text-xs">{formatNumber(forks_count)}</Text>
-          </Box>
-        </Box>
+        <PotionStats
+          stars={stargazers_count}
+          forks={forks_count}
+          className="items-center text-sm"
+        ></PotionStats>
         {/* topic badges */}
         <Box mt="xs" c="dimmed" size="sm" className="flex items-center gap-2">
           {topics.map((topic, index) => (

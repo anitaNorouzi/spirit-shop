@@ -1,6 +1,6 @@
 import { fetchPotion } from "@/modules/technologies/services/github";
 import { notFound } from "next/navigation";
-
+import PotionInfo from "@/modules/technologies/components/potion-info";
 // Return a list of `params` to populate the [slug] dynamic segment
 export async function generateStaticParams() {
   const popularRepos = [
@@ -30,5 +30,5 @@ export default async function PotionPage({
     notFound();
   }
 
-  return <div>My slug: {JSON.stringify(potion)}</div>;
+  return <PotionInfo potion={potion}></PotionInfo>;
 }

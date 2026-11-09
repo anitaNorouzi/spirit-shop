@@ -25,7 +25,7 @@ export const MAGICAL_TYPES = [
     label: "All Types",
     icon: <LuSparkles className="text-magic-purple" />,
   },
-];
+] as const;
 
 export const formatNumber = (num: number): string => {
   if (num >= 1000000) {
