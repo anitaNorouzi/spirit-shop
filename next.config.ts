@@ -7,8 +7,6 @@ const nextConfig: NextConfig = {
       fullUrl: true,
     },
   },
-  cacheComponents: true,
-  partialPrefetching: true,
   turbopack: {
     rules: {
       "*.css": {

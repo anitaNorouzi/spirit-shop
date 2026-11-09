@@ -61,23 +61,17 @@ export async function fetchPotion(owner: string, repo: string) {
       Authorization: `Bearer ${githubToken}`,
     }),
   };
-  const response = await fetch(url, {
-    headers,
-    next: {
-      revalidate: 3600,
-    },
-  });
-
-  if (response.status === 404) {
-    return null;
+  try {
+    const response = await fetch(url, {
+      headers,
+      next: {
+        revalidate: 3600,
+      },
+    });
+    const data = await response.json();
+    console.log("Fetching potion", owner, repo);
+    return transformReformRepoToPotion(data, 0);
+  } catch (error) {
+    console.error("Failed to fetch potions", (error as Error).message);
   }
-
-  if (!response.ok) {
-    throw new Error(`Failed to fetch potion: ${response.status}`);
-  }
-
-  const data = await response.json();
-  console.log("Fetching potion", { data });
-
-  return transformReformRepoToPotion(data, 0);
 }
