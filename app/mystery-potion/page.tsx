@@ -1,7 +1,6 @@
 import PotionInfo from "@/modules/technologies/components/potion-info";
 import { fetchRandomTrendingPotion } from "@/modules/technologies/services/github";
 import { notFound } from "next/navigation";
-import { ORIGIN_URL } from "@/shared/utils";
 export const dynamic = "force-dynamic";
 
 export const generateMetadata = async () => {

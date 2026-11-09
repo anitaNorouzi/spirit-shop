@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/modules/technologies/components/header";
 import Providers from "./providers";
+import { ORIGIN_URL } from "@/shared/utils";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,10 +14,6 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
-const isDev = process.env.NODE_ENV === "development";
-
-export const ORIGIN_URL = isDev ? "http://localhost:3001" : "";
-// export const ORIGIN_URL = isDev ? "http://localhost:300" : "https://open-source-spirit-shop.vercel.app"
 export const metadata: Metadata = {
   title: "Open Source Spirit Shop",
   description:
