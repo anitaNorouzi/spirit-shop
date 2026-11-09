@@ -11,12 +11,16 @@ const POTION_EFFECTS = [
   "Unlock the secrets f clean architecture",
 ];
 
-const transformReformRepoToPotion = (repo: GithubRepo, index: number) => {
+const transformReformRepoToPotion = (
+  repo: GithubRepo,
+  index: number,
+  magicalTypeIndex = index,
+) => {
   return {
     ...repo,
     topics: repo.topics.slice(0, 3),
     potionEffect: POTION_EFFECTS[index % POTION_EFFECTS.length],
-    magicalType: MAGICAL_TYPES[index % MAGICAL_TYPES.length].id,
+    magicalType: MAGICAL_TYPES[magicalTypeIndex % MAGICAL_TYPES.length].id,
   };
 };
 
@@ -70,7 +74,7 @@ export async function fetchPotion(owner: string, repo: string) {
     });
     const data = await response.json();
     console.log("Fetching potion", owner, repo);
-    return transformReformRepoToPotion(data, 0);
+    return transformReformRepoToPotion(data, 0, data.id);
   } catch (error) {
     console.error("Failed to fetch potions", (error as Error).message);
   }
