@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import { fetchPotions } from "@/modules/technologies/services/github";
+
 import PotionGrid from "@/modules/technologies/components/potion-grid";
 // export const revalidate = 0;
 
