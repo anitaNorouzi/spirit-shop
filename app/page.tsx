@@ -1,12 +1,22 @@
 import { Suspense } from "react";
 import { fetchPotions } from "@/modules/technologies/services/github";
-
+import PotionFilters from "@/modules/technologies/components/potion-filters";
 import PotionGrid from "@/modules/technologies/components/potion-grid";
+import { PotionInfoType } from "@/modules/technologies/types.ts/github";
+import { PotionType } from "@/modules/technologies/types.ts/github";
 // export const revalidate = 0;
+type PageType = {
+  searchParams: Promise<{
+    type: string;
+  }>;
+};
 
-export default async function Home() {
+export default async function Home({ searchParams }: PageType) {
   const potions = await fetchPotions();
-
+  const { type } = await searchParams;
+  const filteredPotions = type
+    ? potions.filter((potion: PotionType) => potion.magicalType === type)
+    : potions;
   return (
     <main className="container mx-auto px-4 py-8">
       <div className="max-w-3xl mx-auto text-center mb-12">
@@ -19,9 +29,12 @@ export default async function Home() {
           tools.{" "}
         </p>
       </div>
+      <div className="flex justify-center mb-7">
+        <PotionFilters />
+      </div>
 
       <Suspense fallback={<p>Loading potions...</p>}>
-        <PotionGrid potions={potions} />
+        <PotionGrid potions={filteredPotions} />
       </Suspense>
     </main>
   );
