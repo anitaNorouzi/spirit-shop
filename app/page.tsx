@@ -1,9 +1,7 @@
-import { Suspense } from "react";
 import { fetchPotions } from "@/modules/technologies/services/github";
 import PotionFilters from "@/modules/technologies/components/potion-filters";
 import PotionGrid from "@/modules/technologies/components/potion-grid";
-import { PotionInfoType } from "@/modules/technologies/types.ts/github";
-import { PotionType } from "@/modules/technologies/types.ts/github";
+import type { PotionType } from "@/modules/technologies/types.ts/github";
 // export const revalidate = 0;
 type PageType = {
   searchParams: Promise<{
@@ -18,14 +16,14 @@ export default async function Home({ searchParams }: PageType) {
     ? potions.filter((potion: PotionType) => potion.magicalType === type)
     : potions;
   return (
-    <main className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 py-8">
       <div className="max-w-3xl mx-auto text-center mb-12">
         <h1 className="mb-4 bg-linear-to-r from-magic-light-purple via-magic-pink to-magic-pink bg-clip-text text-4xl font-bold text-transparent md:text-5xl">
           Open Source Spirit Shop
         </h1>
 
         <p className="text-lg text-foreground/80 ">
-          Discover magical potions brewd from the powers of popular open-source
+          Discover magical potions brewed from the powers of popular open-source
           tools.{" "}
         </p>
       </div>
@@ -33,9 +31,7 @@ export default async function Home({ searchParams }: PageType) {
         <PotionFilters />
       </div>
 
-      <Suspense fallback={<p>Loading potions...</p>}>
-        <PotionGrid potions={filteredPotions} />
-      </Suspense>
-    </main>
+      <PotionGrid potions={filteredPotions} />
+    </div>
   );
 }

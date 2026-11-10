@@ -1,24 +1,18 @@
-import { Card, Text, Image, Box, Badge } from "@mantine/core";
-import getMagicalTypeIcon from "@/shared/utils";
+import { Text, Image, Box } from "@mantine/core";
 import { LuStar, LuPackage } from "react-icons/lu";
 import { formatNumber } from "@/shared/utils/constants";
-import type { MagicalType } from "../types.ts/github";
 
 interface PotionHeaderType {
   name: string;
-  magicalType: MagicalType;
   owner: {
     login: string;
     avatar_url: string;
   };
-  size?: "small" | "small";
 }
 
 export const PotionHeader = ({
   name,
-  magicalType,
   owner: { login, avatar_url },
-  size = "small",
 }: PotionHeaderType) => {
   return (
     <>

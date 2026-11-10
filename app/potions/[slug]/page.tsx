@@ -1,7 +1,6 @@
 import { fetchPotion } from "@/modules/technologies/services/github";
 import { notFound } from "next/navigation";
 import PotionInfo from "@/modules/technologies/components/potion-info";
-import { Metadata } from "next";
 type MetadataParams = {
   params: Promise<{ slug: string }>;
 };

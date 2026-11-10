@@ -10,13 +10,13 @@ const Header = () => {
         <span className="font-bold text-xl text-magic-purple">Spirit Shop</span>
       </Link>
 
-      <a
+      <Link
         href="/mystery-potion"
         className="px-4 py-2 rounded-lg bg-secondary text-foreground 
       hover:bg-secondary/80 translation-colors "
       >
         Mystery Potion 🔥
-      </a>
+      </Link>
     </header>
   );
 };

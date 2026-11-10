@@ -46,7 +46,6 @@ const PotionInfo = ({ potion }: PotionInfoType) => {
             <div className="space-y-4 text-xs">
               <PotionHeader
                 name={name}
-                magicalType={magicalType}
                 owner={owner}
               />
               <PotionInfoCard title="Effect">

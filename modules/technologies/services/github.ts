@@ -1,5 +1,4 @@
-import React from "react";
-import { GithubRepo, MagicalType } from "../types.ts/github";
+import type { GithubRepo, MagicalType } from "../types.ts/github";
 import { MAGICAL_TYPES } from "../../../shared/utils/constants";
 const GITHUB_API_URL = "https://api.github.com";
 

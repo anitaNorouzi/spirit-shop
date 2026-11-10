@@ -2,17 +2,11 @@ import React from "react";
 import Link from "next/link";
 import { Card, Text, Image, Box, Badge } from "@mantine/core";
 import getMagicalTypeIcon from "@/shared/utils";
-import { LuStar, LuPackage } from "react-icons/lu";
 import type {
   MagicalType,
   PotionType,
 } from "@/modules/technologies/types.ts/github";
-import { formatNumber } from "@/shared/utils/constants";
 import { PotionStats } from "./potion-common";
-
-interface PotionGridProps {
-  potions: PotionType[];
-}
 
 const potionClasses: Record<MagicalType, string> = {
   fire: "potion-fire",
